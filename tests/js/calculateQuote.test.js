@@ -66,11 +66,11 @@ const testCalculateQuote = () => {
   const quoteReceived1 = calculateQuote(items1);
 
   if (JSON.stringify(emptyQuoteExpected) !== JSON.stringify(emptyQuoteReceived)) {
-    throw new Error('The result has been returned by calculateQuote func with an empty array is not an empty object!');
+    throw new Error('Tested calculateQuote([])Recieved is not mathing expected!');
   }; 
 
   if (JSON.stringify(quoteExpected1) !== JSON.stringify(quoteReceived1)) {
-    throw new Error('The result has been returned by calculateQuote func with an empty array is not an empty object!');
+    throw new Error('Tested calculateQuote(items1). Recieved is not mathing expected!');
   }; 
 
   console.log('All the tests have passed!');
