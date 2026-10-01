@@ -21,8 +21,6 @@ const items2 = [
   },
 ];
 
-const items3 = [];
-
 const testCalculateQuoteTotal = () => {
   const expectedTotal1 = 800;
   const total1 = calculateQuoteTotal(items1);
@@ -52,14 +50,26 @@ const testCalculateQuote = () => {
     throw new Error('Subtotal with one item is not equal to expected value!');
   }
 
-  const emptyQuote = {
+  const emptyQuoteExpected = {
     subtotal: 0,
     tax: 0,
     total: 0,
   };
-  
-  const quote = calculateQuote([]);
-  if (JSON.stringify(emptyQuote) !== JSON.stringify(quote)) {
+
+  const quoteExpected1 = {
+    subtotal: 800,
+    tax: 64,
+    total: 864,
+  }
+
+  const emptyQuoteReceived = calculateQuote([]);
+  const quoteReceived1 = calculateQuote(items1);
+
+  if (JSON.stringify(emptyQuoteExpected) !== JSON.stringify(emptyQuoteReceived)) {
+    throw new Error('The result has been returned by calculateQuote func with an empty array is not an empty object!');
+  }; 
+
+  if (JSON.stringify(quoteExpected1) !== JSON.stringify(quoteReceived1)) {
     throw new Error('The result has been returned by calculateQuote func with an empty array is not an empty object!');
   }; 
 
