@@ -52,7 +52,12 @@ const testCalculateQuote = () => {
     throw new Error('Subtotal with one item is not equal to expected value!');
   }
 
-  const emptyQuote = {};
+  const emptyQuote = {
+    subtotal: 0,
+    tax: 0,
+    total: 0,
+  };
+  
   const quote = calculateQuote([]);
   if (JSON.stringify(emptyQuote) !== JSON.stringify(quote)) {
     throw new Error('The result has been returned by calculateQuote func with an empty array is not an empty object!');
