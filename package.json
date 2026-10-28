@@ -18,9 +18,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "node tests/js/calculateQuote.test.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "devDependencies": {
+    "jest": "^30.5.2",
     "oxfmt": "^0.2.0",
     "oxlint": "^1.16.0"
   }

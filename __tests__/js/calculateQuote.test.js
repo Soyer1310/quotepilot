@@ -1,0 +1,74 @@
+import { calculateQuote, calculateQuoteTotal } from "../../src/calculateQuote.js";
+
+const items1 = [
+  {
+    name: "Labor",
+    quantity: 10,
+    unitPrice: 50
+  },
+  {
+    name: "Materials",
+    quantity: 3,
+    unitPrice: 100
+  }
+];
+
+const items2 = [
+  {
+    name: "Labor",
+    quantity: 5,
+    unitPrice: 100
+  },
+];
+
+const expectedTotal1 = 800;
+const expectedTotal2 = 500;
+const errorMessage = 'Total with one item is not equal to expected value!'
+
+test("calculateQuoteTotal", () => {
+  expect(calculateQuoteTotal(items1)).toEqual(expectedTotal1);
+  expect(calculateQuoteTotal(items2)).toEqual(expectedTotal2);
+});
+
+
+// const testCalculateQuote = () => {
+//   const subtotal1 = calculateQuote(items1).subtotal;
+//   const expectedTotal1 = 800;
+//   if (expectedTotal1 !== subtotal1) {
+//     throw new Error('Subtotal with 2 items is not equal to expected value!');
+//   }
+
+//   const subtotal2 = calculateQuote(items2).subtotal;
+//   const expectedTotal2 = 500;
+//   if (expectedTotal2 !== subtotal2) {
+//     throw new Error('Subtotal with one item is not equal to expected value!');
+//   }
+
+//   const emptyQuoteExpected = {
+//     subtotal: 0,
+//     tax: 0,
+//     total: 0,
+//   };
+
+//   const quoteExpected1 = {
+//     subtotal: 800,
+//     tax: 64,
+//     total: 864,
+//   }
+
+//   const emptyQuoteReceived = calculateQuote([]);
+//   const quoteReceived1 = calculateQuote(items1);
+
+//   if (JSON.stringify(emptyQuoteExpected) !== JSON.stringify(emptyQuoteReceived)) {
+//     throw new Error('Tested calculateQuote([])Recieved is not mathing expected!');
+//   }; 
+
+//   if (JSON.stringify(quoteExpected1) !== JSON.stringify(quoteReceived1)) {
+//     throw new Error('Tested calculateQuote(items1). Recieved is not mathing expected!');
+//   }; 
+
+//   console.log('All the tests have passed!');
+// }
+
+// testCalculateQuoteTotal();
+// testCalculateQuote();
